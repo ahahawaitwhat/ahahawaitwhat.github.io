@@ -1,0 +1,48 @@
+body {
+  font-size: 1.1rem;
+  margin: 25px;
+  background-color: rgb(87, 136, 128);
+  display: flex;
+  max-width: 1000px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.bg {
+  background-color: black;
+  border: solid black 4px;
+  border-radius: 17.5px;
+  display: grid;
+  gap: 0.02rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.white {
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+}
+#head1 {
+  grid-column: 1/5;
+}
+.white {
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+  grid-column: 1/5;
+}
+h1 {
+  font-size: 2rem;
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 1;
+  font-style: normal;
+}
+h2 {
+  text-align: center;
+  border: solid red 1px;
+  padding: 7.5px;
+  margin: 15px;
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: rgba(133, 186, 255, 0.3);
+}
