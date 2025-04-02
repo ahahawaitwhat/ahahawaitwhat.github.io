@@ -1,16 +1,19 @@
 body {
-  font-size: 1.25rem;
-  margin: 35px;
+  font-size: 1rem;
+  margin: 3rem;
   background-color: rgb(87, 136, 128);
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
+  font-weight: 450;
   font-style: normal;
   color: #342e37;
 }
+
 .bg {
   background-color: #342e37;
   border-radius: 17.5px;
-  max-height: 700px;
+  max-height: 42.2rem;
+  min-width: 60rem;
 }
 .headers {
   background-color: #342e37;
@@ -20,6 +23,8 @@ body {
   border-top-right-radius: 17.5px;
   display: grid;
   gap: 0.3rem;
+  min-width: 50.25rem;
+  height: 4.7rem;
 }
 .flexbox-grid {
   display: flex;
@@ -34,22 +39,23 @@ body {
 }
 
 details {
-  /*min-width: 300px;*/
+  min-width: 216px;
   outline: 0.3rem solid #342e37;
   margin: 0.3rem;
   margin-left: 0rem;
-  min-height: 201.5px;
+  min-height: 12.1rem;
   border-radius: 15px;
+  position: relative;
 }
 .col1 {
   margin-left: 0.3rem;
-  min-height: 0px;
+  min-height: 9rem;
 }
 .short {
-  min-height: 150px;
+  min-height: 9.1rem;
 }
 .long {
-  min-height: 254px;
+  min-height: 15.1rem;
 }
 
 .white {
@@ -58,53 +64,89 @@ details {
 #head1 {
   grid-column: 1/4;
   border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 30px;
 }
 #head2 {
   grid-column: 4/5;
   border-radius: 15px;
   text-align: center;
 }
+h1 {
+  font-size: 1.8rem;
+  font-family: "Gravitas One", serif;
+  font-weight: 450;
+  font-style: normal;
+  margin: 15px;
+}
+h2 {
+  font-size: 1.65rem;
+  font-family: "Gravitas One", serif;
+  font-weight: 450;
+  font-style: normal;
+  margin: 15px;
+  margin-right: 35px;
+}
+#maintitle,
+#head2 {
+  min-width: 20rem;
+}
+#stars {
+  min-width: 13rem;
+}
 .offwhite {
   background-color: #ffe5cd;
 }
 .dark {
-  background-color: #e1bc97;
-  background-color: #efd6bd;
   background-color: #f8e8cd;
 }
 .light {
-  background-color: #ebd0a6;
-  background-color: #f8e8cd;
   background-color: #fafffd;
 }
 .orange {
   background-color: #fa824c;
 }
-h1 {
-  font-size: 2rem;
-  font-family: "Gravitas One", serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: 15px;
-  margin-left: 30px;
-  margin-right: 30px;
-}
 
 .tophalf {
-  padding: 30px;
+  padding: 25px;
   margin: 0px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
-  min-height: 150px;
+  /*min-height: 9rem;*/
+  -webkit-transition: color 500ms linear;
+  -ms-transition: color 500ms linear;
+  transition: color 500ms linear;
+  -webkit-transition: font-weight 500ms linear;
+  -ms-transition: font-weight 500ms linear;
+  transition: font-weight 500ms linear;
 }
+.tophalf:hover {
+  cursor: pointer;
+  font-weight: 800;
+  color: #c5323c;
+  -webkit-transition: color 500ms linear;
+  -ms-transition: color 500ms linear;
+  transition: color 500ms linear;
+  -webkit-transition: font-weight 500ms linear;
+  -ms-transition: font-weight 500ms linear;
+  transition: font-weight 500ms linear;
+}
+details[open] {
+  font-weight: 800;
+  color: #c5323c;
+}
+
 .bottomhalf {
-  padding: 30px;
+  padding: 25px;
   margin: 0px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #8a1f1f7b;
+  background-color: #67000067;
+  font-weight: 400;
   color: white;
   flex: 1;
+  font-size: 0.9rem;
 }
 
 ol,
