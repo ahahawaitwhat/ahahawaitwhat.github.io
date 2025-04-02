@@ -1,42 +1,84 @@
 body {
-  font-size: 1.1rem;
-  margin: 25px;
+  font-size: 1.25rem;
+  margin: 35px;
   background-color: rgb(87, 136, 128);
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
   font-family: "Roboto Mono", monospace;
   font-optical-sizing: auto;
   font-style: normal;
+  color: #342e37;
 }
 .bg {
-  background-color: black;
-  border: solid black;
+  background-color: #342e37;
   border-radius: 17.5px;
+  max-height: 700px;
+}
+.headers {
+  background-color: #342e37;
+  border: 0.3rem solid #342e37;
+  border-bottom: 0px;
+  border-top-left-radius: 17.5px;
+  border-top-right-radius: 17.5px;
   display: grid;
-  gap: 0.02rem;
-  grid-auto-rows: auto;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 5fr));
+  gap: 0.3rem;
 }
-div,
+.flexbox-grid {
+  display: flex;
+}
+.column {
+  flex-grow: 1;
+  flex-basis: 0;
+  height: fit-content;
+  border-bottom-left-radius: 17.5px;
+  border-bottom-right-radius: 17.5px;
+  background-color: #342e37;
+}
+
 details {
-  margin: 2px;
-  min-width: 300px;
-}
-.white {
-  background-color: white;
+  /*min-width: 300px;*/
+  outline: 0.3rem solid #342e37;
+  margin: 0.3rem;
+  margin-left: 0rem;
+  min-height: 201.5px;
   border-radius: 15px;
+}
+.col1 {
+  margin-left: 0.3rem;
+  min-height: 0px;
+}
+.short {
+  min-height: 150px;
+}
+.long {
+  min-height: 254px;
+}
+
+.white {
+  background-color: #fafffd;
 }
 #head1 {
   grid-column: 1/4;
+  border-radius: 15px;
 }
 #head2 {
   grid-column: 4/5;
+  border-radius: 15px;
   text-align: center;
 }
 .offwhite {
-  background-color: rgb(241, 229, 213);
-  border-radius: 15px;
+  background-color: #ffe5cd;
+}
+.dark {
+  background-color: #e1bc97;
+  background-color: #efd6bd;
+  background-color: #f8e8cd;
+}
+.light {
+  background-color: #ebd0a6;
+  background-color: #f8e8cd;
+  background-color: #fafffd;
+}
+.orange {
+  background-color: #fa824c;
 }
 h1 {
   font-size: 2rem;
@@ -60,9 +102,19 @@ h1 {
   margin: 0px;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: rgba(133, 186, 255, 0.3);
+  background-color: #8a1f1f7b;
+  color: white;
+  flex: 1;
 }
+
 ol,
 ul {
   padding-left: 35px;
 }
+/*
+#second {
+    margin-top: 30px;
+}
+#fourth {
+    margin-top: 20px;
+}*/
