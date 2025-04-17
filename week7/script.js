@@ -22,11 +22,11 @@ function pauseAudio() {
 const popSound = document.querySelector("#pop-sound");
 console.log(popSound);
 
-const popButton = document.querySelector("#pop-sound");
+const popButton = document.querySelector("#pop-button");
 console.log(popButton);
 
 popButton.addEventListener("click", popAudio);
 
 function popAudio() {
-  airportAudio.pop();
+  popSound.play();
 }

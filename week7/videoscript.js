@@ -4,17 +4,17 @@ console.log(videoFile);
 const playButton = document.querySelector("#play-button");
 console.log(playButton);
 
-playButton.addEventListener("click", playVideo);
-
 function playVideo() {
   videoFile.play();
 }
 
+playButton.addEventListener("click", playVideo);
+
 const pauseButton = document.querySelector("#pause-button");
 console.log(pauseButton);
-
-pauseButton.addEventListener("click", pauseVideo);
 
 function pauseVideo() {
   videoFile.pause();
 }
+
+pauseButton.addEventListener("click", pauseVideo);
