@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <!-- add the font family of your choice -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -12,7 +18,7 @@
   <body>
     <!-- Header Section -->
     <header>
-      <h1>Media Player Website</h1>
+      <h1>album listener</h1>
     </header>
 
     <!-- Navigation Section -->
@@ -30,12 +36,16 @@
     <main class="container">
       <!-- Media Player Section -->
       <div class="media-player">
-        <video id="custom-video-player" controls>
-          <source
-            src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/miac.mp4"
-            type="video/mp4"
-          />
-        </video>
+        <div class="alb-art-container">
+          <image src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg"></image>
+          <image src="media/icons8-play-64.png" class="overlay"></image>
+        </div>
+        <div class="side-by-side">
+          <div id="track-details">
+            <h3 id="track-name">Title of Track</h3>
+            <h4 id="author">Author</h4>
+          </div>
+        </div>
         <div class="custom-controls">
           <button id="play-pause-btn" onclick="togglePlayPause()">
             <img

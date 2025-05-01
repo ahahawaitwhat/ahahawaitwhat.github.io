@@ -15,7 +15,7 @@ ul {
 }
 
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Merriweather", serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -117,4 +117,39 @@ footer {
   text-align: center;
   padding: 10px 0;
   width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 0 0.75rem black);
+}
+
+.alb-art-container {
+  position: relative;
+}
+
+.media-player {
+  max-width: 300px;
+}
+
+#album-bg {
+  max-width: 300px;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+#track-details {
+  margin: 10px;
+}
+
+.side-by-side {
 }
