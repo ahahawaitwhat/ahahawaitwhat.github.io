@@ -1,6 +1,7 @@
 :root {
-  --primary-bg-color: #f4f4f4;
-  --text-color: #333;
+  --primary-bg-color: #95b593;
+  --accent1: #3e3c72;
+  --text-color: #ffeeee;
   --main-bg-color: #333;
   --main-text-color: #fff;
   --main-btn-bg-color: #938989;
@@ -25,25 +26,51 @@ body {
   justify-content: space-between;
 }
 
-/* Add additional styles as needed */
-
-/* Create a container for the main content */
 .container {
-  max-width: 1000px;
   width: 100%;
-  padding: 10px;
+  height: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.402);
 }
 
-/* Header styling */
+.main-content {
+  flex-grow: 1;
+  margin: 30px;
+  margin-bottom: 0px;
+}
+
+.sidebar {
+  width: 25vw;
+  max-width: 300px;
+  background-color: rgba(245, 250, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  padding-left: 30px;
+  padding-right: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.sidebar-content {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 header {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
-  padding: 10px 0;
-  text-align: center;
+  padding: 10px 50px;
   width: 100%;
 }
 
-/* Navigation styling */
 nav {
   margin-top: 20px;
   text-align: center;
@@ -64,10 +91,10 @@ nav a {
   color: var(--text-color);
 }
 
-/* Media player styling */
 .media-player {
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 50px;
 }
 
 .media-player video {
@@ -96,7 +123,7 @@ nav a {
 
 .progress-bar {
   width: 100%;
-  height: 10px;
+  height: 3px;
   background-color: #ddd;
   margin-top: 10px;
   overflow: hidden;
@@ -110,7 +137,6 @@ nav a {
   transition: width 0.3s ease;
 }
 
-/* Footer styling */
 footer {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
@@ -122,9 +148,25 @@ footer {
 .overlay {
   position: absolute;
   top: 50%;
-  left: 50%;
+  width: 65px;
+  filter: drop-shadow(0 0 0.5rem var(--accent1));
+}
+
+#play-pause-btn {
   transform: translate(-50%, -50%);
-  filter: drop-shadow(0 0 0.75rem black);
+  left: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+}
+
+#lasttrack {
+  transform: translate(0%, -50%);
+  left: -40%;
+}
+
+#nexttrack {
+  transform: translate(0%, -50%);
+  right: -40%;
 }
 
 .alb-art-container {
@@ -132,10 +174,12 @@ footer {
 }
 
 .media-player {
+  width: 45vw;
   max-width: 300px;
 }
 
 #album-bg {
+  width: 45vw;
   max-width: 300px;
   border-radius: 15px;
   display: block;
@@ -144,12 +188,37 @@ footer {
 }
 
 h3 {
-  font-size: 25px;
+  font-size: 24px;
 }
 
-#track-details {
+.track-details {
   margin: 10px;
+  margin-top: 30px;
+}
+
+#heart {
+  margin-left: 15px;
 }
 
 .side-by-side {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bg-vid {
+  object-fit: cover;
+  filter: invert(100%);
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.add-content {
+  margin: 30px;
 }

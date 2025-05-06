@@ -22,56 +22,67 @@
     </header>
 
     <!-- Navigation Section -->
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="#">Videos</a></li>
         <li><a href="#">Music</a></li>
         <li><a href="#">Playlists</a></li>
-        <!-- Add or remove navigation items as needed -->
       </ul>
-    </nav>
+    </nav> -->
 
-    <!-- Main Content Section -->
     <main class="container">
-      <!-- Media Player Section -->
-      <div class="media-player">
-        <div class="alb-art-container">
-          <image src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg"></image>
-          <image src="media/icons8-play-64.png" class="overlay"></image>
-        </div>
-        <div class="side-by-side">
-          <div id="track-details">
-            <h3 id="track-name">Title of Track</h3>
-            <h4 id="author">Author</h4>
+      <div class="main-content">
+        <video autoplay muted loop class="bg-vid">
+          <source src="media/5104428-hd_1920_1080_24fps.mp4" type="video/mp4" />
+        </video>
+        <div class="media-player">
+          <div class="alb-art-container">
+            <image src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg"></image>
+            <image
+              src="media/material-symbols--skip-previous-rounded.svg"
+              class="overlay"
+              id="lasttrack"
+            ></image>
+            <button
+              class="overlay"
+              id="play-pause-btn"
+              onclick="togglePlayPause()"
+            >
+              <image id="play-pause-img" src="media/icons8-play-64.png"></image>
+            </button>
+            <image
+              src="media/material-symbols--skip-next-rounded.svg"
+              class="overlay"
+              id="nexttrack"
+            ></image>
           </div>
-        </div>
-        <div class="custom-controls">
-          <button id="play-pause-btn" onclick="togglePlayPause()">
-            <img
-              id="play-pause-img"
-              src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-              alt="Play Button"
-              width="24"
-              height="24"
-            />
-          </button>
-          <!-- add the missing buttons or functionality here -->
-          <div class="progress-bar">
-            <span id="progress-bar-fill"></span>
+          <div class="side-by-side">
+            <div class="track-details">
+              <h3 id="track-name">Title of Track</h3>
+              <h4 id="author">Author</h4>
+            </div>
+            <image
+              src="media/heart.svg"
+              id="heart"
+              class="track-details"
+            ></image>
+          </div>
+          <div class="custom-controls">
+            <div class="progress-bar">
+              <span id="progress-bar-fill"></span>
+            </div>
           </div>
         </div>
       </div>
-
-      <!-- Additional Content Section -->
-      <section>
-        <h2>Additional Content</h2>
-        <p>This is where you can showcase any other relevant content.</p>
-        <!-- Add more content as needed -->
-      </section>
+      <div class="sidebar">
+        <p class="sidebar-content">Everything In Its Right Place</p>
+        <p class="sidebar-content">Kid A</p>
+        <p class="sidebar-content">The National Anthem</p>
+        <p class="sidebar-content">How To Disappear Completely</p>
+      </div>
     </main>
 
-    <!-- Footer Section -->
     <footer>
       <p>&copy; 2024 Media Player Website. All rights reserved.</p>
       <a href="https://icons8.com/icon/59862/play">Play</a> icon by
