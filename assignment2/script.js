@@ -1,21 +1,21 @@
-const video = document.querySelector("#custom-video-player");
+const audio = document.querySelector("#current-audio");
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
 const progressBar = document.querySelector("#progress-bar-fill");
-video.removeAttribute("controls");
+audio.removeAttribute("controls");
 // playPauseBtn.addEventListener("click", togglePlayPause);
-video.addEventListener("timeupdate", updateProgressBar);
+audio.addEventListener("timeupdate", updateProgressBar);
 function togglePlayPause() {
-  if (video.paused || video.ended) {
-    video.play();
+  if (audio.paused || audio.ended) {
+    audio.play();
     playPauseImg.src = "media/icons8-pause-64.png";
   } else {
-    video.pause();
+    audio.pause();
     playPauseImg.src = "media/icons8-play-64.png";
   }
 }
 function updateProgressBar() {
-  const value = (video.currentTime / video.duration) * 100;
+  const value = (audio.currentTime / audio.duration) * 100;
   progressBar.style.width = value + "%";
 }
 

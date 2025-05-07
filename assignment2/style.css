@@ -38,6 +38,7 @@ body {
 }
 
 .main-content {
+  width: 60vw;
   flex-grow: 1;
   margin: 30px;
   margin-bottom: 0px;
@@ -123,18 +124,22 @@ nav a {
 
 .progress-bar {
   width: 100%;
-  height: 3px;
-  background-color: #ddd;
+  height: 4.5px;
+  background-color: #8b8b8b;
   margin-top: 10px;
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.806);
+  border-radius: 4.5px;
 }
 
 .progress-bar span {
   display: block;
   height: 100%;
-  background-color: var(--main-bg-color);
+  background-color: var(--text-color);
   width: 0;
   transition: width 0.3s ease;
+  border-top-right-radius: 4.5px;
+  border-bottom-right-radius: 4.5px;
 }
 
 footer {
