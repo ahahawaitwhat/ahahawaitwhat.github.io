@@ -4,7 +4,9 @@
   --text-color: #ffeeee;
   --main-bg-color: #333;
   --main-text-color: #fff;
-  --main-btn-bg-color: #938989;
+  --main-btn-bg-color: #817a7a;
+  --progress-color: #787878;
+  --faded-text: #b9b9b9;
 }
 
 body,
@@ -31,7 +33,6 @@ body {
   height: 100%;
   flex-grow: 1;
   display: flex;
-  flex-wrap: wrap;
   padding-top: 30px;
   padding-bottom: 10px;
   background-color: rgba(0, 0, 0, 0.402);
@@ -92,6 +93,11 @@ nav a {
   color: var(--text-color);
 }
 
+li {
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
 .media-player {
   width: 100%;
   margin: 0 auto;
@@ -123,12 +129,13 @@ nav a {
 }
 
 .progress-bar {
+  margin-left: 5px;
+  margin-right: 5px;
   width: 100%;
-  height: 4.5px;
-  background-color: #8b8b8b;
+  height: 3.5px;
+  background-color: var(--progress-color);
   margin-top: 10px;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.806);
   border-radius: 4.5px;
 }
 
@@ -153,7 +160,7 @@ footer {
 .overlay {
   position: absolute;
   top: 50%;
-  width: 65px;
+  width: 60px;
   filter: drop-shadow(0 0 0.5rem var(--accent1));
 }
 
@@ -166,12 +173,12 @@ footer {
 
 #lasttrack {
   transform: translate(0%, -50%);
-  left: -40%;
+  left: -8vw;
 }
 
 #nexttrack {
   transform: translate(0%, -50%);
-  right: -40%;
+  right: -8vw;
 }
 
 .alb-art-container {
@@ -184,7 +191,7 @@ footer {
 }
 
 #album-bg {
-  width: 45vw;
+  width: 30vw;
   max-width: 300px;
   border-radius: 15px;
   display: block;
@@ -226,4 +233,15 @@ h3 {
 
 .add-content {
   margin: 30px;
+}
+
+.duration {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  font-size: 11px;
+}
+
+#author {
+  color: var(--faded-text);
 }
