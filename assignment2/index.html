@@ -41,11 +41,12 @@
         </video>
         <div class="media-player">
           <div class="alb-art-container">
-            <image
-              src="media/material-symbols--skip-previous-rounded.svg"
-              class="overlay"
-              id="lasttrack"
-            ></image>
+            <button class="overlay" id="lasttrack" onclick="skipPrevious()">
+              <image
+                src="media/material-symbols--skip-previous-rounded.svg"
+                class="skip-img"
+              ></image>
+            </button>
             <image src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg"></image>
             <button
               class="overlay"
@@ -54,11 +55,12 @@
             >
               <image id="play-pause-img" src="media/icons8-play-64.png"></image>
             </button>
-            <image
-              src="media/material-symbols--skip-next-rounded.svg"
-              class="overlay"
-              id="nexttrack"
-            ></image>
+            <button class="overlay" id="nexttrack" onclick="skipNext()">
+              <image
+                src="media/material-symbols--skip-next-rounded.svg"
+                class="skip-img"
+              ></image>
+            </button>
           </div>
           <div class="side-by-side">
             <div class="track-details">

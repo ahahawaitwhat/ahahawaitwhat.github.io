@@ -34,7 +34,7 @@ body {
   flex-grow: 1;
   display: flex;
   padding-top: 30px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   background-color: rgba(0, 0, 0, 0.402);
 }
 
@@ -58,6 +58,7 @@ body {
   padding-right: 20px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  align-content: center;
 }
 
 .sidebar-content {
@@ -102,6 +103,7 @@ li {
   width: 100%;
   margin: 0 auto;
   margin-bottom: 50px;
+  margin-top: 20px;
 }
 
 .media-player video {
@@ -160,15 +162,18 @@ footer {
 .overlay {
   position: absolute;
   top: 50%;
-  width: 60px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
   filter: drop-shadow(0 0 0.5rem var(--accent1));
+}
+
+.overlay:hover {
+  cursor: pointer;
 }
 
 #play-pause-btn {
   transform: translate(-50%, -50%);
   left: 50%;
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
 }
 
 #lasttrack {
@@ -179,6 +184,10 @@ footer {
 #nexttrack {
   transform: translate(0%, -50%);
   right: -8vw;
+}
+
+.skip-img {
+  width: 60px;
 }
 
 .alb-art-container {
