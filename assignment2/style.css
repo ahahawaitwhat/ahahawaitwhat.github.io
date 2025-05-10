@@ -19,7 +19,6 @@ ul {
 
 body {
   font-family: "Merriweather", serif;
-  background-color: var(--primary-bg-color);
   color: var(--text-color);
   line-height: 1.6;
   display: flex;
@@ -188,6 +187,25 @@ footer {
 
 .skip-img {
   width: 60px;
+}
+
+.skip-img,
+#play-pause-img {
+  scale: 96%;
+  filter: brightness(90%);
+  transition: scale 0.1s;
+}
+
+.skip-img:hover,
+#play-pause-img:hover {
+  scale: 100%;
+  filter: brightness(100%);
+}
+
+.skip-img:active,
+#play-pause-img:active {
+  scale: 96%;
+  filter: brightness(70%);
 }
 
 .alb-art-container {
