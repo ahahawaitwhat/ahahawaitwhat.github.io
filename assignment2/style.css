@@ -192,20 +192,23 @@ li {
 }
 
 .skip-img,
-#play-pause-img {
+#play-pause-img,
+.under-icon {
   scale: 96%;
   filter: brightness(90%);
   transition: scale 0.1s;
 }
 
 .skip-img:hover,
-#play-pause-img:hover {
+#play-pause-img:hover,
+.under-icon:hover {
   scale: 100%;
   filter: brightness(100%);
 }
 
 .skip-img:active,
-#play-pause-img:active {
+#play-pause-img:active,
+.under-icon:active {
   scale: 96%;
   filter: brightness(70%);
 }
@@ -273,4 +276,36 @@ h3 {
 
 #author {
   color: var(--faded-text);
+}
+
+.under-icons-line {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px;
+}
+
+.under-icons-group-1 {
+  display: flex;
+  flex-grow: 1;
+}
+
+.under-icon {
+  padding-right: 10px;
+}
+
+#shuffle {
+  padding-left: 10px;
+}
+
+#volume {
+  justify-self: flex-end;
+}
+
+#heart {
+  align-self: center;
+  stroke: rgb(140, 140, 140);
+}
+
+#heart:hover {
+  stroke: rgb(255, 255, 255);
 }
