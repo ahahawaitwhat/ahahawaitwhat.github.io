@@ -130,6 +130,8 @@ function formatTime(timeToFormat) {
   return formattedTime;
 }
 
+function heart() {}
+
 var audiotrack = 1;
 var loop = false;
 var checkAuto = true;
