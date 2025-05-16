@@ -19,12 +19,17 @@ ul {
   padding: 0;
 }
 
-li {
-  padding-left: 10px;
+h1 {
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
 h3 {
   font-size: 22px;
+}
+
+li {
+  padding-left: 10px;
 }
 
 body {
@@ -92,6 +97,14 @@ body {
 
 .sidebar-title {
   flex-grow: 1;
+}
+
+.sidebar-playpause {
+  min-width: 20px;
+  height: 20px;
+  margin-left: -6px;
+  margin-right: -8px;
+  pointer-events: none;
 }
 
 .li-before {

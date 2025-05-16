@@ -105,7 +105,7 @@
             <img
               id="volume"
               class="under-icon"
-              src="media/volume-x.svg"
+              src="media/volume-2.svg"
               onclick="toggleMuted()"
             />
           </div>
@@ -117,9 +117,27 @@
             class="sidebar-content sidebar-playing"
             id="sidebar-content0"
             onclick="toggleSpecificTrack(0)"
+            onmouseover="showSidebarIcon(0)"
+            onmouseleave="hideSidebarIcon(0)"
           >
             <div class="flex-space-between">
-              <div class="li-before">1</div>
+              <div class="li-before">
+                <!--<svg
+                  class="sidebar-playpause"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="rgb(255, 110, 122)"
+                  stroke="rgb(255, 110, 122)"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>-->
+                1
+              </div>
               <p class="sidebar-title">Hes</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -142,6 +160,8 @@
             class="sidebar-content"
             id="sidebar-content1"
             onclick="toggleSpecificTrack(1)"
+            onmouseover="showSidebarIcon(1)"
+            onmouseleave="hideSidebarIcon(1)"
           >
             <div class="flex-space-between">
               <div class="li-before">2</div>
@@ -167,6 +187,8 @@
             class="sidebar-content"
             id="sidebar-content2"
             onclick="toggleSpecificTrack(2)"
+            onmouseover="showSidebarIcon(2)"
+            onmouseleave="hideSidebarIcon(2)"
           >
             <div class="flex-space-between">
               <div class="li-before">3</div>
@@ -192,6 +214,8 @@
             class="sidebar-content"
             id="sidebar-content3"
             onclick="toggleSpecificTrack(3)"
+            onmouseover="showSidebarIcon(3)"
+            onmouseleave="hideSidebarIcon(3)"
           >
             <div class="flex-space-between">
               <div class="li-before">4</div>

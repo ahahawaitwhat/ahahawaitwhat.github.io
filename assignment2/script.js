@@ -2,6 +2,7 @@ const audio = document.querySelector("#current-audio");
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
 const progressBar = document.querySelector("#progress-bar-fill");
+sidebarContent = document.querySelector("#sidebar-content");
 audio.removeAttribute("controls");
 audio.addEventListener("ended", autoNextTrack);
 audio.addEventListener("timeupdate", handleTimeUpdate);
@@ -20,15 +21,17 @@ function updatePlayingInfo() {
   checkPlaying();
 }
 
-//Play-plause functionality
+//Play-pause functionality
 function playAudio() {
   audio.play();
   playPauseImg.src = "media/icons8-pause-64.png";
+  //  document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPauseIconRed;
 }
 
 function pauseAudio() {
   audio.pause();
   playPauseImg.src = "media/icons8-play-64.png";
+  //  document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPlayIconRed;
 }
 
 document.addEventListener("keydown", function (event) {
@@ -49,13 +52,63 @@ function togglePlayPause() {
 function toggleSpecificTrack(trackClicked) {
   if (currentTrack !== trackClicked) {
     currentTrack = trackClicked;
+    document.querySelector(
+      "#sidebar-content" + trackClicked + " .li-before"
+    ).innerHTML = sidebarPauseIconRed;
     updatePlayingInfo();
     playAudio();
   } else if (audio.paused) {
+    document.querySelector(
+      "#sidebar-content" + trackClicked + " .li-before"
+    ).innerHTML = sidebarPauseIconRed;
     playAudio();
   } else {
+    document.querySelector(
+      "#sidebar-content" + trackClicked + " .li-before"
+    ).innerHTML = sidebarPlayIconRed;
     pauseAudio();
   }
+}
+
+// Make sure the sidebar is displaying which track is selected
+function checkPlaying() {
+  //  document.querySelector(".sidebar-playing .li-before").innerHTML =
+  //   parseInt(
+  //     document
+  //       .querySelector(".sidebar-playing")
+  //       .id.replace("sidebar-content", "")
+  //    ) + 1;
+  document
+    .querySelector(".sidebar-playing")
+    .classList.remove("sidebar-playing");
+  document
+    .getElementById("sidebar-content" + currentTrack)
+    .classList.add("sidebar-playing");
+  //document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPauseIconRed
+}
+
+function showSidebarIcon(trackHovered) {
+  const trackHoveredLi = document.querySelector(
+    "#sidebar-content" + trackHovered
+  );
+  const trackHoveredContent = document.querySelector(
+    "#sidebar-content" + trackHovered + " .li-before"
+  );
+  if (trackHoveredLi.classList.contains("sidebar-playing")) {
+    if (audio.paused === true) {
+      trackHoveredContent.innerHTML = sidebarPlayIconRed;
+    } else {
+      trackHoveredContent.innerHTML = sidebarPauseIconRed;
+    }
+  } else {
+    trackHoveredContent.innerHTML = sidebarPlayIconWhite;
+  }
+}
+
+function hideSidebarIcon(trackHovered) {
+  document.querySelector(
+    "#sidebar-content" + trackHovered + " .li-before"
+  ).innerHTML = trackHovered + 1;
 }
 
 //Set audio source & name
@@ -165,18 +218,6 @@ function checkCurrentHearted() {
   }
 }
 
-function checkPlaying() {
-  console.log(document.getElementById("sidebar-content" + currentTrack));
-  Array.from(document.getElementsByClassName("sidebar-playing")).forEach(
-    (el) => {
-      el.classList.remove("sidebar-playing");
-    }
-  );
-  document
-    .getElementById("sidebar-content" + currentTrack)
-    .classList.add("sidebar-playing");
-}
-
 function toggleMuted() {
   if (audio.muted === true) {
     audio.muted = false;
@@ -188,6 +229,15 @@ function toggleMuted() {
 }
 
 //Setting global variables
+
+const sidebarPauseIconRed =
+  "<svg class='sidebar-playpause' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='rgb(255, 110, 122)' stroke='#rgb(255, 110, 122)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='6' y='4' width='4' height='16'></rect><rect x='14' y='4' width='4' height='16'></rect></svg>";
+const sidebarPlayIconRed =
+  "<svg class='sidebar-playpause' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='rgb(255, 110, 122)' stroke='rgb(255, 110, 122)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'></polygon></svg>";
+const sidebarPauseIconWhite =
+  "<svg class='sidebar-playpause' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='6' y='4' width='4' height='16'></rect><rect x='14' y='4' width='4' height='16'></rect></svg>";
+const sidebarPlayIconWhite =
+  "<svg class='sidebar-playpause' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'></polygon></svg>";
 
 var currentTrack = 0;
 var loop = false;
