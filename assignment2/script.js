@@ -135,7 +135,6 @@ function toggleHeart(trackNumber) {
 }
 
 function checkCurrentHearted() {
-  //currentHearted = tracks[audiotrack - 1].hearted;
   if (tracks[currentTrack].hearted == true) {
     document.getElementById("heart-main").classList.add("hearted");
   } else {

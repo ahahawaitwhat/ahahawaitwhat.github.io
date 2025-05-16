@@ -33,7 +33,7 @@ body {
   display: flex;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.402);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .main-content {
@@ -62,7 +62,6 @@ body {
   margin-bottom: 15px;
   padding-bottom: 15px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  display: flex;
 }
 
 #last-sidebar {
@@ -71,12 +70,18 @@ body {
   padding-bottom: 0px;
 }
 
+.sidebar-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 header,
 footer {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   width: 100%;
   padding: 10px 50px;
+  position: fixed;
 }
 
 footer {
@@ -107,8 +112,6 @@ nav a {
 li {
   padding-left: 10px;
   margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
 }
 
 .media-player {
@@ -272,7 +275,7 @@ h3 {
   width: 100vw;
   height: 100vh;
   display: inline-block;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   margin-right: -50%;
