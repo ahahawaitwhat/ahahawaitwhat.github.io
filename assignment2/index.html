@@ -18,18 +18,24 @@
   <body>
     <!-- Header Section -->
     <header>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#ffffff"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        id="logo"
+      >
+        <circle cx="5.5" cy="17.5" r="2.5" />
+        <circle cx="17.5" cy="15.5" r="2.5" />
+        <path d="M8 17V5l12-2v12" />
+      </svg>
       <h1>album listener</h1>
     </header>
-
-    <!-- Navigation Section -->
-    <!-- <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Videos</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Playlists</a></li>
-      </ul>
-    </nav> -->
 
     <main class="container">
       <div class="main-content">
@@ -86,10 +92,8 @@
               ></path>
             </svg>
           </div>
-          <div class="custom-controls">
-            <div class="progress-bar">
-              <span id="progress-bar-fill"></span>
-            </div>
+          <div class="progress-bar">
+            <span id="progress-bar-fill"></span>
           </div>
           <div class="duration">
             <p id="current-duration">0:00</p>
@@ -97,10 +101,74 @@
           </div>
           <div class="under-icons-line">
             <div class="under-icons-group-1">
-              <img class="under-icon" src="media/rewind.svg" />
-              <img class="under-icon" src="media/fast-forward.svg" />
-              <img class="under-icon" id="shuffle" src="media/shuffle.svg" />
-              <img class="under-icon" src="media/repeat.svg" />
+              <svg
+                class="under-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="white"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                onclick="rewind()"
+              >
+                <polygon points="11 19 2 12 11 5 11 19"></polygon>
+                <polygon points="22 19 13 12 22 5 22 19"></polygon>
+              </svg>
+              <svg
+                class="under-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="white"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                onclick="fastForward()"
+              >
+                <polygon points="13 19 22 12 13 5 13 19"></polygon>
+                <polygon points="2 19 11 12 2 5 2 19"></polygon>
+              </svg>
+              <svg
+                class="under-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                onclick="toggleShuffle()"
+                id="shuffle"
+              >
+                <path
+                  d="M16 3h5v5M4 20L20.2 3.8M21 16v5h-5M15 15l5.1 5.1M4 4l5 5"
+                />
+              </svg>
+              <svg
+                class="under-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                onclick="toggleLoop()"
+                id="loop"
+              >
+                <path d="M17 2.1l4 4-4 4" />
+                <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4" />
+                <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2" />
+              </svg>
             </div>
             <img
               id="volume"
@@ -121,23 +189,7 @@
             onmouseleave="hideSidebarIcon(0)"
           >
             <div class="flex-space-between">
-              <div class="li-before">
-                <!--<svg
-                  class="sidebar-playpause"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="rgb(255, 110, 122)"
-                  stroke="rgb(255, 110, 122)"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>-->
-                1
-              </div>
+              <div class="li-before">1</div>
               <p class="sidebar-title">Hes</p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -240,6 +292,34 @@
         </ol>
       </div>
     </main>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M16 3h5v5M4 20L20.2 3.8M21 16v5h-5M15 15l5.1 5.1M4 4l5 5" />
+    </svg>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M17 2.1l4 4-4 4" />
+      <path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4" />
+      <path d="M21 11.8v2a4 4 0 0 1-4 4H4.2" />
+    </svg>
 
     <footer>
       <p>&copy; 2025 Media Player Website. All rights reserved.</p>

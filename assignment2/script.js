@@ -72,19 +72,12 @@ function toggleSpecificTrack(trackClicked) {
 
 // Make sure the sidebar is displaying which track is selected
 function checkPlaying() {
-  //  document.querySelector(".sidebar-playing .li-before").innerHTML =
-  //   parseInt(
-  //     document
-  //       .querySelector(".sidebar-playing")
-  //       .id.replace("sidebar-content", "")
-  //    ) + 1;
   document
     .querySelector(".sidebar-playing")
     .classList.remove("sidebar-playing");
   document
     .getElementById("sidebar-content" + currentTrack)
     .classList.add("sidebar-playing");
-  //document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPauseIconRed
 }
 
 function showSidebarIcon(trackHovered) {
@@ -115,18 +108,32 @@ function hideSidebarIcon(trackHovered) {
 function setAudioSrcName() {
   const track = tracks[currentTrack];
   audio.src = track.src;
-  document.getElementById("track-name").textContent = track.name;
+  document.querySelector("#track-name").textContent = track.name;
+  document.querySelector("#remaining-duration").innerHTML =
+    "-" + track.duration;
 }
 
 //Next-previous track controls & autoplay
 function skipPrevious() {
-  if (currentTrack === 0) {
-    currentTrack = 3;
+  if (shuffle === true) {
+    let queuePosition = queue.indexOf(currentTrack);
+    console.log(queuePosition);
+    if (queuePosition === 0) {
+      currentTrack = queue[3];
+    } else {
+      currentTrack = queue[queuePosition - 1];
+    }
+    updatePlayingInfo();
+    playAudio();
   } else {
-    currentTrack--;
+    if (currentTrack === 0) {
+      currentTrack = 3;
+    } else {
+      currentTrack--;
+    }
+    updatePlayingInfo();
+    playAudio();
   }
-  updatePlayingInfo();
-  playAudio();
 }
 
 function skipNext() {
@@ -135,18 +142,35 @@ function skipNext() {
 }
 
 function nextTrack() {
-  if (currentTrack === 3) {
-    currentTrack = 0;
+  if (shuffle === true) {
+    let queuePosition = queue.indexOf(currentTrack);
+    console.log(queuePosition);
+    if (queuePosition === 3) {
+      currentTrack = queue[0];
+    } else {
+      currentTrack = queue[queuePosition + 1];
+    }
+    updatePlayingInfo();
+    if (loop === false && checkAuto === true && queuePosition === 3) {
+      pauseAudio();
+      resetProgressBar();
+    } else {
+      playAudio();
+    }
   } else {
-    currentTrack++;
-  }
-  updatePlayingInfo();
-  //check if loop is on
-  if (loop === false && checkAuto === true && currentTrack === 0) {
-    pauseAudio();
-    resetProgressBar();
-  } else {
-    playAudio();
+    if (currentTrack === 3) {
+      currentTrack = 0;
+    } else {
+      currentTrack++;
+    }
+    updatePlayingInfo();
+    //check if loop is on
+    if (loop === false && checkAuto === true && currentTrack === 0) {
+      pauseAudio();
+      resetProgressBar();
+    } else {
+      playAudio();
+    }
   }
 }
 
@@ -175,9 +199,13 @@ function updateCurrentDuration() {
 }
 
 function updateRemainingDuration() {
-  let remainingTime = audio.duration - audio.currentTime;
-  document.getElementById("remaining-duration").innerHTML =
-    "-" + formatTime(remainingTime);
+  if (isNaN(audio.duration)) {
+    document.getElementById("remaining-duration").innerHTML = "--:--";
+  } else {
+    let remainingTime = audio.duration - audio.currentTime;
+    document.getElementById("remaining-duration").innerHTML =
+      "-" + formatTime(remainingTime);
+  }
 }
 
 function formatTime(timeToFormat) {
@@ -218,6 +246,55 @@ function checkCurrentHearted() {
   }
 }
 
+//Icons under duration bar
+
+function rewind() {
+  audio.currentTime = audio.currentTime - 10;
+}
+
+function fastForward() {
+  audio.currentTime = audio.currentTime + 10;
+}
+
+function toggleShuffle() {
+  if (shuffle === false) {
+    shuffle = true;
+    shuffleQueue(queue);
+    document.querySelector("#shuffle").style.stroke = "var(--colourful-accent)";
+  } else {
+    shuffle = false;
+    document.querySelector("#shuffle").style.stroke = "white";
+  }
+}
+
+function shuffleQueue(array) {
+  //my attempt at making my own rng logic
+  let order = [false, false, false, false];
+  order[currentTrack] = true;
+  queue[0] = currentTrack;
+  for (let i = 0; i < array.length - 1; i++) {
+    console.log("i =" + i);
+    let randNum = Math.floor(Math.random() * array.length);
+    while (order[randNum] == true) {
+      randNum = Math.floor(Math.random() * array.length);
+    }
+    console.log(randNum);
+    order[randNum] = true; //that random number has already been used
+    queue[i + 1] = randNum; //filling the next spot with the random number
+  }
+  console.log(queue);
+}
+
+function toggleLoop() {
+  if (loop === true) {
+    loop = false;
+    document.querySelector("#loop").style.stroke = "white";
+  } else {
+    loop = true;
+    document.querySelector("#loop").style.stroke = "var(--colourful-accent)";
+  }
+}
+
 function toggleMuted() {
   if (audio.muted === true) {
     audio.muted = false;
@@ -239,29 +316,35 @@ const sidebarPauseIconWhite =
 const sidebarPlayIconWhite =
   "<svg class='sidebar-playpause' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='white' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polygon points='5 3 19 12 5 21 5 3'></polygon></svg>";
 
-var currentTrack = 0;
-var loop = false;
-var checkAuto = true;
-var currentHearted = false;
-var tracks = [
+let currentTrack = 0;
+let shuffle = false;
+let loop = false;
+let checkAuto = true;
+let currentHearted = false;
+let queue = [0, 1, 2, 3];
+let tracks = [
   {
     name: "Hes",
     src: "media/p-hase_Hes.mp3",
     hearted: false,
+    duration: "1:51",
   },
   {
     name: "Dry Down (Ft. Ben Snaath)",
     src: "media/p-hase_Dry-Down-feat-Ben-Snaath.mp3",
     hearted: false,
+    duration: "1:50",
   },
   {
     name: "Leapt",
     src: "media/p-hase_Leapt.mp3",
     hearted: false,
+    duration: "1:36",
   },
   {
     name: "Water Feature",
     src: "media/p-hase_Water-Feature.mp3",
     hearted: false,
+    duration: "0:55",
   },
 ];
