@@ -45,24 +45,24 @@
               <img
                 src="media/material-symbols--skip-previous-rounded.svg"
                 class="skip-img"
-              ></img>
+              />
             </button>
-            <img src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg"></img>
+            <img src="media/ezgif-2de200fa9ea9ea.jpg" id="album-bg" />
             <button
               class="overlay"
               id="play-pause-btn"
               onclick="togglePlayPause()"
             >
-              <img id="play-pause-img" src="media/icons8-play-64.png"></img>
+              <img id="play-pause-img" src="media/icons8-play-64.png" />
             </button>
             <button class="overlay" id="nexttrack" onclick="skipNext()">
               <img
                 src="media/material-symbols--skip-next-rounded.svg"
                 class="skip-img"
-              ></img>
+              />
             </button>
           </div>
-          <div class="side-by-side">
+          <div class="flex-space-between">
             <div class="track-details">
               <h3 id="track-name">Hes</h3>
               <h4 id="author">p-hase</h4>
@@ -97,110 +97,120 @@
           </div>
           <div class="under-icons-line">
             <div class="under-icons-group-1">
-              <img class="under-icon" src="media/rewind.svg"></img>
-              <img class="under-icon" src="media/fast-forward.svg"></img>
-              <img
-                class="under-icon"
-                id="shuffle"
-                src="media/shuffle.svg"
-              ></img>
-              <img class="under-icon" src="media/repeat.svg"></img>
+              <img class="under-icon" src="media/rewind.svg" />
+              <img class="under-icon" src="media/fast-forward.svg" />
+              <img class="under-icon" id="shuffle" src="media/shuffle.svg" />
+              <img class="under-icon" src="media/repeat.svg" />
             </div>
             <img
               id="volume"
               class="under-icon"
               src="media/volume-x.svg"
-            ></img>
+              onclick="toggleMuted()"
+            />
           </div>
         </div>
       </div>
       <div class="sidebar">
         <ol>
-          <li class="sidebar-content">
-            <div class="sidebar-flex"><p>Hes</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              id="heart0"
-              class="sidebar-heart heart"
-              onclick="toggleHeart(0)"
-            >
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              ></path>
-            </svg>
+          <li
+            class="sidebar-content sidebar-playing"
+            id="sidebar-content0"
+            onclick="toggleSpecificTrack(0)"
+          >
+            <div class="flex-space-between">
+              <div class="li-before">1</div>
+              <p class="sidebar-title">Hes</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="heart0"
+                class="sidebar-heart heart"
+                onclick="toggleHeart(0, event)"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
             </div>
           </li>
-          <li class="sidebar-content">
-                        <div class="sidebar-flex"><p>Dry Down (Ft. Ben Snaath)</p>
-            
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              id="heart1"
-              class="sidebar-heart heart"
-              onclick="toggleHeart(1)"
-            >
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              ></path>
-            </svg>
+          <li
+            class="sidebar-content"
+            id="sidebar-content1"
+            onclick="toggleSpecificTrack(1)"
+          >
+            <div class="flex-space-between">
+              <div class="li-before">2</div>
+              <p class="sidebar-title">Dry Down (Ft. Ben Snaath)</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="heart1"
+                class="sidebar-heart heart"
+                onclick="toggleHeart(1, event)"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
             </div>
           </li>
-          <li class="sidebar-content">
-                        <div class="sidebar-flex"><p>Leapt</p>
-            
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              id="heart2"
-              class="sidebar-heart heart"
-              onclick="toggleHeart(2)"
-            >
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              ></path>
-            </svg>
+          <li
+            class="sidebar-content"
+            id="sidebar-content2"
+            onclick="toggleSpecificTrack(2)"
+          >
+            <div class="flex-space-between">
+              <div class="li-before">3</div>
+              <p class="sidebar-title">Leapt</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="heart2"
+                class="sidebar-heart heart"
+                onclick="toggleHeart(2, event)"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
             </div>
           </li>
-          <li class="sidebar-content" id="last-sidebar">
-            <div class="sidebar-flex"><p>Water Feature</p>
-           
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              id="heart3"
-              class="sidebar-heart heart"
-              onclick="toggleHeart(3)"
-            >
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
-              ></path>
-            </svg>
+          <li
+            class="sidebar-content"
+            id="sidebar-content3"
+            onclick="toggleSpecificTrack(3)"
+          >
+            <div class="flex-space-between">
+              <div class="li-before">4</div>
+              <p class="sidebar-title">Water Feature</p>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                id="heart3"
+                class="sidebar-heart heart"
+                onclick="toggleHeart(3, event)"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                ></path>
+              </svg>
             </div>
           </li>
         </ol>

@@ -13,7 +13,24 @@ function handleTimeUpdate() {
   updateRemainingDuration();
 }
 
+//Grouping functions
+function updatePlayingInfo() {
+  setAudioSrcName();
+  checkCurrentHearted();
+  checkPlaying();
+}
+
 //Play-plause functionality
+function playAudio() {
+  audio.play();
+  playPauseImg.src = "media/icons8-pause-64.png";
+}
+
+function pauseAudio() {
+  audio.pause();
+  playPauseImg.src = "media/icons8-play-64.png";
+}
+
 document.addEventListener("keydown", function (event) {
   if (event.code === "Space" || event.key === " ") {
     event.preventDefault();
@@ -23,11 +40,21 @@ document.addEventListener("keydown", function (event) {
 
 function togglePlayPause() {
   if (audio.paused || audio.ended) {
-    audio.play();
-    playPauseImg.src = "media/icons8-pause-64.png";
+    playAudio();
   } else {
-    audio.pause();
-    playPauseImg.src = "media/icons8-play-64.png";
+    pauseAudio();
+  }
+}
+
+function toggleSpecificTrack(trackClicked) {
+  if (currentTrack !== trackClicked) {
+    currentTrack = trackClicked;
+    updatePlayingInfo();
+    playAudio();
+  } else if (audio.paused) {
+    playAudio();
+  } else {
+    pauseAudio();
   }
 }
 
@@ -45,10 +72,8 @@ function skipPrevious() {
   } else {
     currentTrack--;
   }
-  setAudioSrcName();
-  audio.play();
-  playPauseImg.src = "media/icons8-pause-64.png";
-  checkCurrentHearted();
+  updatePlayingInfo();
+  playAudio();
 }
 
 function skipNext() {
@@ -62,17 +87,14 @@ function nextTrack() {
   } else {
     currentTrack++;
   }
-  setAudioSrcName();
+  updatePlayingInfo();
   //check if loop is on
   if (loop === false && checkAuto === true && currentTrack === 0) {
-    audio.pause();
-    playPauseImg.src = "media/icons8-play-64.png";
+    pauseAudio();
     resetProgressBar();
   } else {
-    audio.play();
-    playPauseImg.src = "media/icons8-pause-64.png";
+    playAudio();
   }
-  checkCurrentHearted();
 }
 
 function autoNextTrack() {
@@ -128,7 +150,8 @@ function mainToggleHeart() {
   tracks[currentTrack].hearted = !tracks[currentTrack].hearted; //hearted status
 }
 
-function toggleHeart(trackNumber) {
+function toggleHeart(trackNumber, event) {
+  if (event) event.stopPropagation();
   tracks[trackNumber].hearted = !tracks[trackNumber].hearted;
   document.getElementById("heart" + trackNumber).classList.toggle("hearted");
   checkCurrentHearted();
@@ -139,6 +162,28 @@ function checkCurrentHearted() {
     document.getElementById("heart-main").classList.add("hearted");
   } else {
     document.getElementById("heart-main").classList.remove("hearted");
+  }
+}
+
+function checkPlaying() {
+  console.log(document.getElementById("sidebar-content" + currentTrack));
+  Array.from(document.getElementsByClassName("sidebar-playing")).forEach(
+    (el) => {
+      el.classList.remove("sidebar-playing");
+    }
+  );
+  document
+    .getElementById("sidebar-content" + currentTrack)
+    .classList.add("sidebar-playing");
+}
+
+function toggleMuted() {
+  if (audio.muted === true) {
+    audio.muted = false;
+    document.querySelector("#volume").src = "media/volume-2.svg";
+  } else {
+    audio.muted = true;
+    document.querySelector("#volume").src = "media/volume-x.svg";
   }
 }
 

@@ -1,6 +1,8 @@
 :root {
   --primary-bg-color: #95b593;
   --accent1: #3e3c72;
+  --colourful-accent: rgb(255, 110, 122);
+  --heart: rgb(201, 0, 60);
   --text-color: #ffeeee;
   --main-bg-color: #333;
   --main-text-color: #fff;
@@ -15,6 +17,14 @@ p,
 ul {
   margin: 0;
   padding: 0;
+}
+
+li {
+  padding-left: 10px;
+}
+
+h3 {
+  font-size: 22px;
 }
 
 body {
@@ -33,7 +43,7 @@ body {
   display: flex;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .main-content {
@@ -51,26 +61,45 @@ body {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 30px 20px 30px 30px;
+  padding: 15px 25px 15px 25px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   align-content: center;
   align-self: center;
 }
 
+.sidebar ol {
+  list-style: none;
+}
+
 .sidebar-content {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
+  padding: 15px 20px 15px 20px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-#last-sidebar {
-  border-bottom: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+.sidebar-content:hover {
+  background-color: rgba(255, 255, 255, 0.103);
+  cursor: pointer;
 }
 
-.sidebar-flex {
+.sidebar-playing {
+  color: var(--colourful-accent);
+}
+
+#sidebar-content3 {
+  border-bottom: 0px;
+}
+
+.sidebar-title {
+  flex-grow: 1;
+}
+
+.li-before {
+  margin-right: 20px;
+  align-content: center;
+}
+
+.flex-space-between {
   display: flex;
   justify-content: space-between;
 }
@@ -81,37 +110,11 @@ footer {
   color: var(--main-text-color);
   width: 100%;
   padding: 10px 50px;
-  position: fixed;
 }
 
 footer {
   padding: 10px 0;
   text-align: center;
-}
-
-nav {
-  margin-top: 20px;
-  text-align: center;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-}
-
-nav ul li {
-  margin-right: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text-color);
-}
-
-li {
-  padding-left: 10px;
-  margin-left: 10px;
 }
 
 .media-player {
@@ -238,10 +241,6 @@ li {
   margin-right: auto;
 }
 
-h3 {
-  font-size: 24px;
-}
-
 .track-details {
   margin: 10px;
   margin-top: 30px;
@@ -254,18 +253,26 @@ h3 {
 }
 
 .heart:hover {
-  stroke: red;
+  stroke: var(--heart);
   cursor: pointer;
 }
 
 .hearted {
-  stroke: red;
-  fill: red;
+  stroke: var(--heart);
+  fill: var(--heart);
 }
 
-.side-by-side {
-  display: flex;
-  justify-content: space-between;
+#heart-main {
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.sidebar-heart {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  min-height: 20px;
+  margin-left: 20px;
 }
 
 .bg-vid {
@@ -318,4 +325,5 @@ h3 {
 
 #volume {
   justify-self: flex-end;
+  padding: 0px;
 }
