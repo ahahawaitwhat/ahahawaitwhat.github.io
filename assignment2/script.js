@@ -33,21 +33,22 @@ function togglePlayPause() {
 
 //Set audio source & name
 function setAudioSrcName() {
-  const track = tracks[audiotrack - 1];
+  const track = tracks[currentTrack];
   audio.src = track.src;
   document.getElementById("track-name").textContent = track.name;
 }
 
 //Next-previous track controls & autoplay
 function skipPrevious() {
-  if (audiotrack === 1) {
-    audiotrack = 4;
+  if (currentTrack === 0) {
+    currentTrack = 3;
   } else {
-    audiotrack--;
+    currentTrack--;
   }
   setAudioSrcName();
   audio.play();
   playPauseImg.src = "media/icons8-pause-64.png";
+  checkCurrentHearted();
 }
 
 function skipNext() {
@@ -56,14 +57,14 @@ function skipNext() {
 }
 
 function nextTrack() {
-  if (audiotrack === 4) {
-    audiotrack = 1;
+  if (currentTrack === 3) {
+    currentTrack = 0;
   } else {
-    audiotrack++;
+    currentTrack++;
   }
   setAudioSrcName();
   //check if loop is on
-  if (loop === false && checkAuto === true && audiotrack === 1) {
+  if (loop === false && checkAuto === true && currentTrack === 0) {
     audio.pause();
     playPauseImg.src = "media/icons8-play-64.png";
     resetProgressBar();
@@ -71,6 +72,7 @@ function nextTrack() {
     audio.play();
     playPauseImg.src = "media/icons8-pause-64.png";
   }
+  checkCurrentHearted();
 }
 
 function autoNextTrack() {
@@ -119,15 +121,34 @@ function formatTime(timeToFormat) {
   return formattedTime;
 }
 
-function toggleHeart() {
-  document.getElementById("heart-main").style.fill = "red";
-  document.getElementById("heart-main").style.stroke = "red";
-  tracks[audiotrack - 1].hearted = true;
+//Heart system
+
+function mainToggleHeart() {
+  document.getElementById("heart-main").classList.toggle("hearted"); //visual
+  tracks[currentTrack].hearted = !tracks[currentTrack].hearted; //hearted status
 }
 
-var audiotrack = 1;
+function toggleHeart(trackNumber) {
+  tracks[trackNumber].hearted = !tracks[trackNumber].hearted;
+  document.getElementById("heart" + trackNumber).classList.toggle("hearted");
+  checkCurrentHearted();
+}
+
+function checkCurrentHearted() {
+  //currentHearted = tracks[audiotrack - 1].hearted;
+  if (tracks[currentTrack].hearted == true) {
+    document.getElementById("heart-main").classList.add("hearted");
+  } else {
+    document.getElementById("heart-main").classList.remove("hearted");
+  }
+}
+
+//Setting global variables
+
+var currentTrack = 0;
 var loop = false;
 var checkAuto = true;
+var currentHearted = false;
 var tracks = [
   {
     name: "Hes",
@@ -150,4 +171,3 @@ var tracks = [
     hearted: false,
   },
 ];
-console.log(audiotrack);

@@ -107,6 +107,8 @@ nav a {
 li {
   padding-left: 10px;
   margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .media-player {
@@ -245,12 +247,17 @@ h3 {
 .heart {
   margin-left: 15px;
   align-self: center;
-  stroke: rgb(140, 140, 140);
+  stroke: white;
 }
 
 .heart:hover {
-  stroke: rgb(255, 255, 255);
+  stroke: red;
   cursor: pointer;
+}
+
+.hearted {
+  stroke: red;
+  fill: red;
 }
 
 .side-by-side {
