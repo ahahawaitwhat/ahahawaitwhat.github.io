@@ -263,16 +263,16 @@ footer {
 }
 
 .under-icon {
-  padding-right: 10px;
+  margin-right: 10px;
 }
 
 #shuffle {
-  padding-left: 10px;
+  margin-left: 10px;
 }
 
 #volume {
   justify-self: flex-end;
-  padding: 0px;
+  margin: 0px;
 }
 
 /*Sidebar */

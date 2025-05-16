@@ -151,6 +151,7 @@ function nextTrack() {
       currentTrack = queue[queuePosition + 1];
     }
     updatePlayingInfo();
+    //check if loop is on
     if (loop === false && checkAuto === true && queuePosition === 3) {
       pauseAudio();
       resetProgressBar();
@@ -273,12 +274,10 @@ function shuffleQueue(array) {
   order[currentTrack] = true;
   queue[0] = currentTrack;
   for (let i = 0; i < array.length - 1; i++) {
-    console.log("i =" + i);
     let randNum = Math.floor(Math.random() * array.length);
     while (order[randNum] == true) {
       randNum = Math.floor(Math.random() * array.length);
     }
-    console.log(randNum);
     order[randNum] = true; //that random number has already been used
     queue[i + 1] = randNum; //filling the next spot with the random number
   }
