@@ -33,20 +33,9 @@ function togglePlayPause() {
 
 //Set audio source & name
 function setAudioSrcName() {
-  if (audiotrack === 1) {
-    audio.src = "media/p-hase_Hes.mp3";
-    document.getElementById("track-name").innerHTML = "Hes";
-  } else if (audiotrack === 2) {
-    audio.src = "media/p-hase_Dry-Down-feat-Ben-Snaath.mp3";
-    document.getElementById("track-name").innerHTML =
-      "Dry Down (Ft. Ben Snaath)";
-  } else if (audiotrack === 3) {
-    audio.src = "media/p-hase_Leapt.mp3";
-    document.getElementById("track-name").innerHTML = "Leapt";
-  } else if (audiotrack === 4) {
-    audio.src = "media/p-hase_Water-Feature.mp3";
-    document.getElementById("track-name").innerHTML = "Water Feature";
-  }
+  const track = tracks[audiotrack - 1];
+  audio.src = track.src;
+  document.getElementById("track-name").textContent = track.name;
 }
 
 //Next-previous track controls & autoplay
@@ -130,9 +119,35 @@ function formatTime(timeToFormat) {
   return formattedTime;
 }
 
-function heart() {}
+function toggleHeart() {
+  document.getElementById("heart-main").style.fill = "red";
+  document.getElementById("heart-main").style.stroke = "red";
+  tracks[audiotrack - 1].hearted = true;
+}
 
 var audiotrack = 1;
 var loop = false;
 var checkAuto = true;
+var tracks = [
+  {
+    name: "Hes",
+    src: "media/p-hase_Hes.mp3",
+    hearted: false,
+  },
+  {
+    name: "Dry Down (Ft. Ben Snaath)",
+    src: "media/p-hase_Dry-Down-feat-Ben-Snaath.mp3",
+    hearted: false,
+  },
+  {
+    name: "Leapt",
+    src: "media/p-hase_Leapt.mp3",
+    hearted: false,
+  },
+  {
+    name: "Water Feature",
+    src: "media/p-hase_Water-Feature.mp3",
+    hearted: false,
+  },
+];
 console.log(audiotrack);
