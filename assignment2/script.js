@@ -2,7 +2,6 @@ const audio = document.querySelector("#current-audio");
 const playPauseBtn = document.querySelector("#play-pause-btn");
 const playPauseImg = document.querySelector("#play-pause-img");
 const progressBar = document.querySelector("#progress-bar-fill");
-sidebarContent = document.querySelector("#sidebar-content");
 audio.removeAttribute("controls");
 audio.addEventListener("ended", autoNextTrack);
 audio.addEventListener("timeupdate", handleTimeUpdate);
@@ -278,7 +277,7 @@ function shuffleQueue(array) {
     while (order[randNum] == true) {
       randNum = Math.floor(Math.random() * array.length);
     }
-    order[randNum] = true; //that random number has already been used
+    order[randNum] = true; //toggle this random number = used
     queue[i + 1] = randNum; //filling the next spot with the random number
   }
   console.log(queue);
