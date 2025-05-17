@@ -100,7 +100,7 @@ function showSidebarIcon(trackHovered) {
 function hideSidebarIcon(trackHovered) {
   document.querySelector(
     "#sidebar-content" + trackHovered + " .li-before"
-  ).innerHTML = trackHovered + 1;
+  ).textContent = trackHovered + 1;
 }
 
 //Set audio source & name
@@ -108,7 +108,7 @@ function setAudioSrcName() {
   const track = tracks[currentTrack];
   audio.src = track.src;
   document.querySelector("#track-name").textContent = track.name;
-  document.querySelector("#remaining-duration").innerHTML =
+  document.querySelector("#remaining-duration").textContent =
     "-" + track.duration;
 }
 
@@ -193,17 +193,17 @@ function resetProgressBar() {
 
 //Display current & remaining durations
 function updateCurrentDuration() {
-  document.getElementById("current-duration").innerHTML = formatTime(
+  document.getElementById("current-duration").textContent = formatTime(
     audio.currentTime
   );
 }
 
 function updateRemainingDuration() {
   if (isNaN(audio.duration)) {
-    document.getElementById("remaining-duration").innerHTML = "--:--";
+    document.getElementById("remaining-duration").textContent = "--:--";
   } else {
     let remainingTime = audio.duration - audio.currentTime;
-    document.getElementById("remaining-duration").innerHTML =
+    document.getElementById("remaining-duration").textContent =
       "-" + formatTime(remainingTime);
   }
 }
