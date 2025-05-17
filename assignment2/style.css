@@ -213,6 +213,10 @@ footer {
   cursor: pointer;
 }
 
+.heart-playing {
+  stroke: var(--colourful-accent);
+}
+
 .hearted {
   stroke: var(--heart);
   fill: var(--heart);

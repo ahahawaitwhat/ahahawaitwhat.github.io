@@ -103,6 +103,21 @@ function checkPlaying() {
     .classList.add("sidebar-playing");
 }
 
+function checkPlaying() {
+  document.querySelector(
+    ".sidebar-playing .sidebar-heart"
+  ).classList.remove("heart-playing");
+  document
+    .querySelector(".sidebar-playing")
+    .classList.remove("sidebar-playing");
+  document.querySelector(
+    "#sidebar-content" + currentTrack + " .sidebar-heart"
+  ).classList.add("heart-playing");
+  document
+    .getElementById("sidebar-content" + currentTrack)
+    .classList.add("sidebar-playing");
+}
+
 function showSidebarIcon(trackHovered) {
   const trackHoveredLi = document.querySelector(
     "#sidebar-content" + trackHovered
