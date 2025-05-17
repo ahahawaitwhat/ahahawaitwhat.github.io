@@ -20,6 +20,37 @@ function updatePlayingInfo() {
   checkPlaying();
 }
 
+//Keyboard events
+
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space" || event.key === " ") {
+    event.preventDefault();
+    togglePlayPause();
+  }
+  if (event.key === "m") {
+    event.preventDefault();
+    toggleMuted();
+  }
+  if (event.key === "ArrowLeft") {
+    if (event.shiftKey) {
+      event.preventDefault();
+      skipPrevious();
+    } else {
+      event.preventDefault();
+      rewind();
+    }
+  }
+  if (event.key === "ArrowRight") {
+    if (event.shiftKey) {
+      event.preventDefault();
+      skipNext();
+    } else {
+      event.preventDefault();
+      fastForward();
+    }
+  }
+});
+
 //Play-pause functionality
 function playAudio() {
   audio.play();
@@ -32,13 +63,6 @@ function pauseAudio() {
   playPauseImg.src = "media/icons8-play-64.png";
   //  document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPlayIconRed;
 }
-
-document.addEventListener("keydown", function (event) {
-  if (event.code === "Space" || event.key === " ") {
-    event.preventDefault();
-    togglePlayPause();
-  }
-});
 
 function togglePlayPause() {
   if (audio.paused || audio.ended) {
