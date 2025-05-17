@@ -6,14 +6,14 @@ audio.removeAttribute("controls");
 audio.addEventListener("ended", autoNextTrack);
 audio.addEventListener("timeupdate", handleTimeUpdate);
 
-//All time update functions
+//Grouping functions
+
 function handleTimeUpdate() {
   updateProgressBar();
   updateCurrentDuration();
   updateRemainingDuration();
 }
 
-//Grouping functions
 function updatePlayingInfo() {
   setAudioSrcName();
   checkCurrentHearted();
@@ -52,16 +52,15 @@ document.addEventListener("keydown", function (event) {
 });
 
 //Play-pause functionality
+
 function playAudio() {
   audio.play();
   playPauseImg.src = "media/icons8-pause-64.png";
-  //  document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPauseIconRed;
 }
 
 function pauseAudio() {
   audio.pause();
   playPauseImg.src = "media/icons8-play-64.png";
-  //  document.querySelector(".sidebar-playing .li-before").innerHTML = sidebarPlayIconRed;
 }
 
 function togglePlayPause() {
@@ -94,6 +93,7 @@ function toggleSpecificTrack(trackClicked) {
 }
 
 // Make sure the sidebar is displaying which track is selected
+
 function checkPlaying() {
   document
     .querySelector(".sidebar-playing")
@@ -128,6 +128,7 @@ function hideSidebarIcon(trackHovered) {
 }
 
 //Set audio source & name
+
 function setAudioSrcName() {
   const track = tracks[currentTrack];
   audio.src = track.src;
@@ -137,6 +138,7 @@ function setAudioSrcName() {
 }
 
 //Next-previous track controls & autoplay
+
 function skipPrevious() {
   if (shuffle === true) {
     let queuePosition = queue.indexOf(currentTrack);
@@ -206,6 +208,7 @@ function autoNextTrack() {
 }
 
 //Progress bar
+
 function updateProgressBar() {
   const value = (audio.currentTime / audio.duration) * 100;
   progressBar.style.width = value + "%";
@@ -216,6 +219,7 @@ function resetProgressBar() {
 }
 
 //Display current & remaining durations
+
 function updateCurrentDuration() {
   document.getElementById("current-duration").textContent = formatTime(
     audio.currentTime
