@@ -96,23 +96,14 @@ function toggleSpecificTrack(trackClicked) {
 
 function checkPlaying() {
   document
-    .querySelector(".sidebar-playing")
-    .classList.remove("sidebar-playing");
-  document
-    .getElementById("sidebar-content" + currentTrack)
-    .classList.add("sidebar-playing");
-}
-
-function checkPlaying() {
-  document.querySelector(
-    ".sidebar-playing .sidebar-heart"
-  ).classList.remove("heart-playing");
+    .querySelector(".sidebar-playing .sidebar-heart")
+    .classList.remove("heart-playing");
   document
     .querySelector(".sidebar-playing")
     .classList.remove("sidebar-playing");
-  document.querySelector(
-    "#sidebar-content" + currentTrack + " .sidebar-heart"
-  ).classList.add("heart-playing");
+  document
+    .querySelector("#sidebar-content" + currentTrack + " .sidebar-heart")
+    .classList.add("heart-playing");
   document
     .getElementById("sidebar-content" + currentTrack)
     .classList.add("sidebar-playing");
@@ -317,11 +308,12 @@ function shuffleQueue(array) {
   queue[0] = currentTrack;
   for (let i = 0; i < array.length - 1; i++) {
     let randNum = Math.floor(Math.random() * array.length);
+    //keep generating new randNum until we get one that hasn't been used
     while (order[randNum] == true) {
       randNum = Math.floor(Math.random() * array.length);
     }
-    order[randNum] = true; //toggle this random number = used
-    queue[i + 1] = randNum; //filling the next spot with the random number
+    order[randNum] = true; //mark randNum as used
+    queue[i + 1] = randNum; //filling the next spot in queue with randNum
   }
   console.log(queue);
 }
