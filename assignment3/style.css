@@ -1,0 +1,122 @@
+:root {
+  --main-solid: coral;
+  --main-bg: white;
+}
+
+#no-display {
+  display: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  padding: 20px;
+  padding-right: 0px;
+  background-color: var(--main-solid);
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.navigation {
+  display: flex;
+}
+
+.nav-item {
+  border-right: 1px solid black;
+  padding: 0px 20px;
+  text-align: center;
+}
+
+#nav-item3 {
+  border: none;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+.main-content {
+  background-color: var(--main-bg);
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  padding: 1vw;
+  margin-top: 65px;
+}
+
+.sidebar {
+  width: 30vw;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  padding-right: 0px;
+  align-content: flex-start;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.preset-header {
+  text-align: center;
+  margin: 30px 15px 0px 30px;
+}
+
+.preset-box {
+  background-color: white;
+  margin: 15px;
+  border-radius: 25px;
+  border: 2px solid black;
+  padding: 15px;
+  height: 175px;
+  width: 175px;
+}
+
+#box1 {
+  background-color: orange;
+}
+#box2 {
+  background-color: coral;
+}
+#box3 {
+  background-color: green;
+}
+#box4 {
+  background-color: cornflowerblue;
+}
+#box5 {
+  background-color: grey;
+}
+#box6 {
+  background-color: powderblue;
+}
+
+#canvas-container {
+  width: 63vw;
+  height: 80vh;
+  margin: 30px;
+  border-radius: 25px;
+  border: 2px solid black;
+  position: fixed;
+  left: 31vw;
+}
+
+.canvas {
+  /*flex-grow: 1;*/
+  width: 62vw;
+  height: 80vh;
+  object-fit: contain;
+  position: fixed;
+  border-radius: 25px;
+}
+
+#canvas2 {
+  /*background-color: #BDC2C8;*/
+  background-color: bisque;
+}
