@@ -2,7 +2,7 @@ const canvas1 = document.querySelector("#canvas1");
 const ctx1 = canvas1.getContext("2d");
 const canvas2 = document.querySelector("#canvas2");
 const ctx2 = canvas2.getContext("2d");
-const spacing = 10;
+const spacing = 5;
 const profile = document.querySelector("#profile");
 
 window.addEventListener("resize", loadCanvas);
@@ -39,11 +39,7 @@ if (profile.complete) {
 }
 
 function drawHair() {
-  for (
-    let i = canvas1.width / 2 - profile.width + profile.width / 5;
-    i <= (canvas1.width - spacing) / spacing;
-    i++
-  ) {
+  for (let i = 60; i <= 130; i++) {
     j = i * spacing;
     ctx1.moveTo(j, 100);
     ctx1.lineTo(j, 500);
